@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-use App\MovieRecommender;
+use App\MovieRecommenderInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -15,13 +15,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class GetMoviesWithMultipleWordsCommand extends Command
 {
-    private MovieRecommender $movieRecommender;
+    private MovieRecommenderInterface $movieRecommender;
 
     public function __construct()
     {
         require __DIR__ . '/../movies.php';
 
-        $this->movieRecommender = new MovieRecommender($movies);
+        $this->movieRecommender = new MovieRecommenderInterface($movies);
 
         parent::__construct();
     }
