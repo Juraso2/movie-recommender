@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\MovieRecommender;
 use App\MovieRecommenderInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -21,7 +22,7 @@ class GetMoviesStartingWithWAndEvenCharactersCommand extends Command
     {
         require __DIR__ . '/../movies.php';
 
-        $this->movieRecommender = new MovieRecommenderInterface($movies);
+        $this->movieRecommender = new MovieRecommender($movies);
 
         parent::__construct();
     }
